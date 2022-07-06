@@ -78,4 +78,9 @@ namespace scenepic
     return *this;
   }
 
+  // Add definition to this compilation unit, as the compiler may choose not to inline
+  // the static const int, and so we can get unresolved symbols without this (see scenepic issue #36)
+  // https://stackoverflow.com/questions/4891067/weird-undefined-symbols-of-static-constants-inside-a-struct-class
+  const int LayerSettings::NO_RENDER_ORDER;
+
 } // namespace scenepic
